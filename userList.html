@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>用户列表</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .table{
+            margin-top: 10px;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>用户列表</h1>
+        </div>
+        <div class="text-right">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">添加用户</button>
+        </div>
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="exampleModalLabel">添加用户</h4>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group add-group">
+						<label for="recipient-name" class="control-label">姓名:</label>
+						<input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group add-group">
+						<label for="recipient-name" class="control-label">性别:</label>
+						<input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group add-group">
+						<label for="recipient-name" class="control-label">年龄:</label>
+						<input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group add-group">
+						<label for="recipient-name" class="control-label">电话:</label>
+						<input type="text" class="form-control" id="recipient-name">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary addSubmit">提交</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th>电话</th>
+                    <th>操作</th>
+                </tr>
+                <!-- <tr>
+                    <td>1</td>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>26</td>
+                    <td>18878789898</td>
+                    <td>
+                        <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-pencil"></span> 编辑</button>
+                        <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> 删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>26</td>
+                    <td>18878789898</td>
+                    <td>
+                        <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-pencil"></span> 编辑</button>
+                        <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> 删除</button>
+                    </td>
+                </tr> -->
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation" class="text-right">
+            <ul class="pagination">
+              <li class="prev">
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <!-- <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li> -->
+              <li class="next">
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+        </nav>
+
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="exampleModalLabel">编辑用户</h4>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group edit-group">
+						<label for="recipient-name" class="control-label">姓名:</label>
+						<input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group edit-group">
+						<label for="recipient-name" class="control-label">性别:</label>
+						<input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group edit-group">
+						<label for="recipient-name" class="control-label">年龄:</label>
+						<input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group edit-group">
+						<label for="recipient-name" class="control-label">电话:</label>
+						<input type="text" class="form-control" id="recipient-name">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary editSubmit">提交</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script>
+    var index = 0;//页码下标
+    var thDom = $('.table tbody tr');
+    var userId;
+
+    // 加载首页数据
+    $.ajax({
+        url: './userList.php',
+        type: 'get',
+        data: {
+            type: 'page',
+            page: 1
+        },
+        dataType: 'json',
+        success: function (json){
+            // 生成分页
+            var pages = Math.ceil(json.total/8);
+            var numDom = '';
+            for (var i = 0, len = pages; i < len; i++){
+                numDom += '<li class="num"><a href="#">'+(i+1)+'</a></li>';
+            }
+            $('.prev').after(numDom);
+
+            // 显示第一页
+            $('.num').eq(0).addClass('active');
+
+            // 展示数据
+            var trDom = '';
+            $.each(json.data,function (index,item){
+                trDom += `
+                    <tr>
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.sex}</td>
+                        <td>${item.age}</td>
+                        <td>${item.phone}</td>
+                        <td>
+                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editModal"><span class="glyphicon glyphicon-pencil"></span> 编辑</button>
+                            <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> 删除</button>
+                        </td>
+                    </tr>
+                `;
+            })
+            $('.table tbody').append(trDom);
+        }
+    });
+
+    // 选择页码
+    $('.pagination').on('click','.num',function (){
+        var ind = $('.num').index(this);
+        $(this).addClass('active').siblings('.num').removeClass('active');
+        index = ind;
+        loadData(index);
+    })
+    // 下一页
+    $('.next').click(function (){
+        index++;
+        if (index >= $('.num').length) {
+            index = $('.num').length-1;
+        }
+        $('.num').eq(index).addClass('active').siblings('.num').removeClass('active');
+        loadData(index);
+    })
+    // 上一页
+    $('.prev').click(function (){
+        index--;
+        if (index < 0) {
+            index = 0;
+        }
+        $('.num').eq(index).addClass('active').siblings('.num').removeClass('active');
+        loadData(index);
+    })
+    function loadData(index){
+        $.ajax({
+            url: './userList.php',
+            type: 'get',
+            data: {
+                type: 'page',
+                page: index+1,
+            },
+            dataType: 'json',
+            success: function (json){
+                $('.table tbody').html('');
+                $('.table tbody').html(thDom);
+                // 展示数据
+                var trDom = '';
+                $.each(json.data,function (index,item){
+                    trDom += `
+                        <tr>
+                            <td>${item.id}</td>
+                            <td>${item.name}</td>
+                            <td>${item.sex}</td>
+                            <td>${item.age}</td>
+                            <td>${item.phone}</td>
+                            <td>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editModal"><span class="glyphicon glyphicon-pencil"></span> 编辑</button>
+                                <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> 删除</button>
+                            </td>
+                        </tr>
+                    `;
+                })
+                $('.table tbody').append(trDom);
+            }
+        });
+    }
+
+    // 编辑用户
+    $('.table').on('click','.btn-success',function (){
+        userId = $(this).closest('tr').find('td').eq(0).text();
+        var name = $(this).closest('tr').find('td').eq(1).text();
+        var sex = $(this).closest('tr').find('td').eq(2).text();
+        var age = $(this).closest('tr').find('td').eq(3).text();
+        var phone = $(this).closest('tr').find('td').eq(4).text();
+        $('.edit-group input').eq(0).val(name);
+        $('.edit-group input').eq(1).val(sex);
+        $('.edit-group input').eq(2).val(age);
+        $('.edit-group input').eq(3).val(phone);
+    })
+    // 编辑提交
+    $('.editSubmit').click(function () {
+        $.ajax({
+            url: './userList.php',
+            type: 'get',
+            data: {
+                type: 'update',
+                userId: userId,
+                name: $('.edit-group input').eq(0).val(),
+                sex: $('.edit-group input').eq(1).val(),
+                age: $('.edit-group input').eq(2).val(),
+                phone: $('.edit-group input').eq(3).val()
+            },
+            dataType: 'json',
+            success: function (json){
+                alert(json.msg);
+                $('#editModal').modal('hide');
+                location.reload();
+            }
+        })
+    })
+	//添加用户
+	$('.addSubmit').click(function() {
+		$.ajax({
+			url: './userList.php',
+			type: 'get',
+			data: {
+				type: 'add',
+				name: $('.add-group input').eq(0).val(),
+				sex: $('.add-group input').eq(1).val(),
+				age: $('.add-group input').eq(2).val(),
+				phone: $('.add-group input').eq(3).val()
+			},
+			dataType: 'json',
+			success: function(json) {
+				alert(json.msg);
+				$('#addModal').modal('hide');
+				location.reload();
+			}
+		})	
+	})
+	//删除用户
+	$('.table').on('click','.btn-danger',function() {
+		userId = $(this).closest('tr').find('td').eq(0).text();
+		$.ajax({
+			url: './userList.php',
+			type: 'get',
+			data: {
+				type: 'delete',
+				userId: userId,
+			},
+			dataType: 'json',
+			success: function(json) {
+				alert(json.msg);
+				location.reload();
+			}
+		})
+	})
+    </script>
+  </body>
+</html>
